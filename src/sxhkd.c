@@ -51,7 +51,7 @@ int redir_fd;
 FILE *status_fifo;
 char progress[3 * MAXLEN];
 int mapping_count;
-int timeout;
+float timeout;
 
 hotkey_t *hotkeys_head, *hotkeys_tail;
 bool running, grabbed, toggle_grab, reload, bell, chained, locked;
@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
 					warn("Can't parse mapping count.\n");
 				break;
 			case 't':
-				timeout = atoi(optarg);
+				timeout = atof(optarg);
 				break;
 			case 'c':
 				config_path = optarg;
